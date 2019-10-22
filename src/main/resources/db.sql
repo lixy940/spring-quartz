@@ -15,24 +15,6 @@ Date: 2019-10-22 11:19:15
 
 SET FOREIGN_KEY_CHECKS=0;
 
--- ----------------------------
--- Table structure for commit_table_record
--- ----------------------------
-DROP TABLE IF EXISTS `commit_table_record`;
-CREATE TABLE `commit_table_record` (
-  `commit_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `db_id` int(11) DEFAULT NULL COMMENT '数据库连接id',
-  `table_name` varchar(128) DEFAULT NULL COMMENT '表名',
-  `path` varchar(128) DEFAULT NULL COMMENT '脚本路径',
-  `etl_col` varchar(128) DEFAULT NULL COMMENT 'etl统计column',
-  `data_type` tinyint(2) DEFAULT NULL COMMENT '数据类型',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`commit_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='已提交的表记录';
-
--- ----------------------------
--- Records of commit_table_record
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for handler_task
@@ -53,20 +35,6 @@ CREATE TABLE `handler_task` (
 -- Records of handler_task
 -- ----------------------------
 
--- ----------------------------
--- Table structure for handler_task_status
--- ----------------------------
-DROP TABLE IF EXISTS `handler_task_status`;
-CREATE TABLE `handler_task_status` (
-  `handler_id` int(11) NOT NULL AUTO_INCREMENT,
-  `task_id` int(11) DEFAULT NULL COMMENT '任务id',
-  `begin_index` bigint(20) DEFAULT NULL COMMENT '记录开始点',
-  `end_index` bigint(20) DEFAULT NULL COMMENT '记录结束点',
-  `status` tinyint(2) DEFAULT '0' COMMENT '状态 0 未开始 1 已完成',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
-  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`handler_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='任务处理详情';
 
 -- ----------------------------
 -- Records of handler_task_status

@@ -1,10 +1,12 @@
 package com.lixy.quartz.controller;
 
 import com.lixy.quartz.dao.SysDBInfoMapper;
-import com.lixy.quartz.entity.CommitTableRecord;
 import com.lixy.quartz.entity.SysDBInfo;
 import com.lixy.quartz.service.DataExtractService;
-import com.lixy.quartz.vo.*;
+import com.lixy.quartz.vo.HandlerTaskVo;
+import com.lixy.quartz.vo.ResponseResult;
+import com.lixy.quartz.vo.TaskSearchVo;
+import com.lixy.quartz.vo.TaskShowVo;
 import com.lixy.quartz.vo.page.SpringPageVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -63,42 +65,6 @@ public class DataExtractController {
         return result;
     }
 
-
-    @ApiOperation(value = "根据数据库连接id获取所有表", notes = "获取所有的数据库连接")
-    @PostMapping(value = "/getTableListByDbId")
-    public ResponseResult getTableListByDbId(@RequestBody SourceTableSearchVo record) {
-        ResponseResult result = new ResponseResult();
-        SourceTablePageVo data = dataExtractService.getTableListByDbId(record);
-        result.setData(data);
-        return result;
-    }
-
-
-    @ApiOperation(value = "保存提交表记录", notes = "保存提交表记录")
-    @PostMapping("/saveCommitTableRecord")
-    public ResponseResult saveCommitTableRecord(@RequestBody CommitTableRecord record) {
-        ResponseResult result = new ResponseResult();
-        dataExtractService.saveCommitTableRecord(record);
-        return result;
-    }
-
-
-    /**
-     * 已提交表分页列表
-     *
-     * @param record
-     * @return
-     */
-    @ApiOperation(value = "已提交表分页列表", notes = "已提交表分页列表")
-    @PostMapping("findCommitTablePage")
-    public ResponseResult findCommitTablePage(@RequestBody CommitTableSearchVo record) {
-        ResponseResult result = new ResponseResult();
-        SpringPageVo<CommitTableRecord> pageVo = dataExtractService.findCommitTablePage(record);
-        result.setData(pageVo);
-        return result;
-    }
-
-
     /**
      * 批量添加已提交任务列表
      *
@@ -133,13 +99,5 @@ public class DataExtractController {
     }
 
 
-    @ApiOperation(value = "任务状态列表", notes = "任务状态列表")
-    @PostMapping("findTaskStatusPage")
-    public ResponseResult findTaskStatusPage(@RequestBody TaskStatusSearchVo record) {
-        ResponseResult result = new ResponseResult();
-        SpringPageVo<TaskStatusShowVo> pageVo = dataExtractService.findTaskStatusPage(record);
-        result.setData(pageVo);
-        return result;
-    }
 
 }
