@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  */
 @Api(tags = {"数据库访问公共接口"})
 @RestController
-@RequestMapping("/sandcommon")
+@RequestMapping("/common")
 public class CommonController {
 
     private final static Logger logger = LoggerFactory.getLogger(CommonController.class);
