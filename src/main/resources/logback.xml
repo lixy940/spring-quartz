@@ -65,7 +65,7 @@
 	<logger name="org.I0Itec.zkclient" level="WARN"></logger>
 
 	<!-- com.ceiec -->
-	<logger name="com.ceiec.dataextract" level="INFO"/>
+	<logger name="com.lixy.quartz" level="INFO"/>
 
 	<root level="INFO">
 		<appender-ref ref="CONSOLE"/>
