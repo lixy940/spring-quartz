@@ -22,7 +22,7 @@
         <fastjson.version>1.2.37</fastjson.version>
         <commons-lang3.version>3.5</commons-lang3.version>
         <swagger.version>2.7.0</swagger.version>
-        <pagehelper.version>5.1.2</pagehelper.version>
+        <pagehelper.version>1.2.5</pagehelper.version>
     </properties>
 
     <dependencies>
@@ -75,11 +75,13 @@
         </dependency>
 
         <!--pageHelper-->
+
         <dependency>
             <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>${pagehelper.version}</version>
         </dependency>
+
 
         <!--swagger文档生成工具 -->
         <dependency>
